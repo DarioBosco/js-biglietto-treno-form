@@ -32,16 +32,17 @@
 					<!-- Inizio riga superiore -->
 					<form class="row px-5 text-center">
 						<div class="col mb-3">
-							<label for="exampleInputEmail1" class="form-label">Nome e Cognome</label>
-							<input type="name" class="form-control" id="exampleInputEmail1" placeholder="Inserisci il tuo nome" />
+							<label for="customerName" class="form-label">Nome e Cognome</label>
+							<input type="name" class="form-control" id="customerName" placeholder="Inserisci il tuo nome" />
 						</div>
 						<div class="col mb-3">
-							<label for="exampleInputEmail1" class="form-label">Km da percorrere</label>
-							<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Inserisci i km" />
+							<label for="travelDistance" class="form-label">Km da percorrere</label>
+							<input type="number" class="form-control" id="travelDistance" placeholder="Inserisci i km" />
 						</div>
 						<div class="col mb-3">
-							<label for="exampleInputEmail1" class="form-label">Fascia d'età</label>
-							<select class="form-select" aria-label="Default select example">
+							<label for="age" class="form-label">Fascia d'età</label>
+							<select class="form-select" id="age" aria-label="Default select example">
+								<option selected value="none"></option>
 								<option value="underage">Minorenne</option>
 								<option value="adult">Maggiorenne</option>
 								<option value="over65">Over 65</option>
@@ -50,15 +51,15 @@
 						<!-- Fine riga superiore -->
 						<!-- Inizio riga inferiore -->
 						<div class="row justify-content-center mt-5">
-							<button type="button" class="col-2 mx-3 btn fw-bold">Genera</button>
-							<button type="button" class="col-2 mx-3 btn fw-bold">Annulla</button>
+							<button id="generateTicketButton" type="button" class="col-2 mx-3 btn fw-bold">Genera</button>
+							<button id="resetButton" type="button" class="col-2 mx-3 btn fw-bold">Annulla</button>
 						</div>
 						<!-- Fine riga inferiore -->
 					</form>
 				</div>
 				<!-- Fine primo container -->
 				<!-- Inizio conteniore del biglietto -->
-				<div id="container-biglietto" class="container-fluid py-3">
+				<div id="container-biglietto" class="container-fluid py-3 d-none">
 					<div class="row text-center">
 						<h2 class="col text-white">IL TUO BIGLIETTO</h2>
 					</div>
@@ -73,13 +74,13 @@
 								<div class="row">
 									<div class="col bg-secondary p-3">
 										<h6 class="fw-bold">NOME PASSEGGERO</h6>
-										<h6 id="customerName" class="fw-bold"></h6>
+										<h6 id="ticketName" class="fw-bold"></h6>
 									</div>
 									<div class="col p-4">
 										<div class="row">
 											<div class="col">
 												<h6 class="fw-bold">Offerta</h6>
-												<h6 id="rateGroup"></h6>
+												<h6 id="ticketRate"></h6>
 											</div>
 										</div>
 									</div>
@@ -87,7 +88,7 @@
 										<div class="row">
 											<div class="col">
 												<h6 class="fw-bold">Carrozza</h6>
-												<h6 id="carriageNumber"></h6>
+												<h6 id="ticketCarriage"></h6>
 											</div>
 										</div>
 									</div>
@@ -95,7 +96,7 @@
 										<div class="row">
 											<div class="col">
 												<h6 class="fw-bold">Codice CP</h6>
-												<h6 id="reservationCode"></h6>
+												<h6 id="ticketReservationCode"></h6>
 											</div>
 										</div>
 									</div>
