@@ -3,8 +3,19 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+:root {
+	--main: #a21956;
+	--secondary: #cacacb;
+	--tertiary: #7e7e7f;
+}
 /* -------------------------------------------------- */
 /* Inizio Common */
+body .wrapper {
+	background-color: var(--main);
+	height: 100vh;
+	width: 100%;
+}
 
 /* Fine Common */
 /* -------------------------------------------------- */
@@ -13,7 +24,31 @@
 /* Fine Header */
 /* -------------------------------------------------- */
 /* Inizio Main */
+input.form-control {
+	border-color: var(--main);
+}
+label {
+	color: var(--main);
+}
 
+button.btn,
+button.btn:hover {
+	background-color: var(--secondary);
+	border-color: grey;
+	border-width: 2px;
+	color: var(--main);
+}
+
+button.btn:active,
+button.btn:focus {
+	border-color: var(--main);
+	box-shadow: none;
+}
+
+.card {
+	border-radius: 10px;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+}
 /* Fine Main */
 /* -------------------------------------------------- */
 /* !DEBUG ZONE! */
