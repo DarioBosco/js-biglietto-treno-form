@@ -7,7 +7,7 @@ Creiamo un finto biglietto del treno con:
 //Numero carrozza
 //Prezzo calcolato
 //Categoria selezionata dall'utente
-Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo su annulla dobbiamo ripulire il form.
+//Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo su annulla dobbiamo ripulire il form.
 
 ? BONUS: predisporre l'interfaccia grafica responsiva
 */
