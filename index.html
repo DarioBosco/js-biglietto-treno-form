@@ -24,7 +24,9 @@
 
 			<!-- Inizio Main -->
 			<main>
+				<!-- Inizio primo container -->
 				<div class="container card p-4">
+					<!-- Inizio riga superiore -->
 					<form class="row px-5 text-center">
 						<div class="col mb-3">
 							<label for="exampleInputEmail1" class="form-label">Nome e Cognome</label>
@@ -32,18 +34,31 @@
 						</div>
 						<div class="col mb-3">
 							<label for="exampleInputEmail1" class="form-label">Km da percorrere</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" />
+							<input type="number" class="form-control" id="exampleInputEmail1" />
 						</div>
 						<div class="col mb-3">
 							<label for="exampleInputEmail1" class="form-label">fascia d'età</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" />
+							<select class="form-select" aria-label="Default select example">
+								<option value="underage">Minorenne</option>
+								<option value="adult">Maggiorenne</option>
+								<option value="over65">Over 65</option>
+							</select>
 						</div>
+						<!-- Fine riga superiore -->
+						<!-- Inizio riga inferiore -->
 						<div class="row justify-content-center mt-5">
-							<button type="submit" class="col-2 mx-3 btn fw-bold">Genera</button>
-							<button type="submit" class="col-2 mx-3 btn fw-bold">Annulla</button>
+							<button type="button" class="col-2 mx-3 btn fw-bold">Genera</button>
+							<button type="button" class="col-2 mx-3 btn fw-bold">Annulla</button>
 						</div>
+						<!-- Fine riga inferiore -->
 					</form>
 				</div>
+				<!-- Fine primo container -->
+				<!-- Inizio conteniore del biglietto -->
+				<div class="container">
+					<div class="row"></div>
+				</div>
+				<!-- Fine contenitore del biglietto -->
 			</main>
 			<!-- Fine Main -->
 		</div>
