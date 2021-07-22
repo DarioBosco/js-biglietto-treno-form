@@ -9,7 +9,7 @@ Creiamo un finto biglietto del treno con:
 //Categoria selezionata dall'utente
 Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo su annulla dobbiamo ripulire il form.
 
-? BONUS: predisporre l'interfaccia grafica responsiva :faccia_leggermente_sorridente:
+? BONUS: predisporre l'interfaccia grafica responsiva
 */
 
 /* Bottone GENERA */
