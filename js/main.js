@@ -12,23 +12,45 @@ Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo
 ? BONUS: predisporre l'interfaccia grafica responsiva :faccia_leggermente_sorridente:
 */
 
-document.getElementById('generateTicketButton').addEventListener('click', function createTicket() {
+document.getElementById('generateTicketButton').addEventListener('click', function () {
+	var ticketPriceByKm = 0.21;
+
 	var customerName = document.getElementById('customerName').value;
-	var reservationCode = Math.floor(Math.random() * 10000 + 90000);
-	var carriageNumber = Math.floor(Math.random() * 10) + 1;
-	var travelCost = document.getElementById('travelDistance').value * 0.21;
+	var travelDistance = parseInt(document.getElementById('travelDistance').value);
 	var customerAge = document.getElementById('age').value;
 
+	var reservationCode = Math.floor(Math.random() * 10000 + 90000);
+	var carriageNumber = Math.floor(Math.random() * 10) + 1;
+
 	var rate = '';
+	var discount = 1;
 	if (customerAge == 'underage') {
+		discount = 0.8;
 		rate = 'Sconto Minorenne';
-		populateTicket();
 	} else if (customerAge == 'adult') {
+		discount = 1;
 		rate = 'Tariffa Adulto';
-		populateTicket();
 	} else if (customerAge == 'over65') {
+		discount = 0.6;
 		rate = 'Sconto Over&#160;65';
-		populateTicket();
+	}
+	console.log(discount);
+	var travelCost = travelDistance * ticketPriceByKm * discount;
+	populateTicket();
+
+	if ((customerAge != 'underage' && customerAge != 'adult' && customerAge != 'over65') || customerName == '' || travelDistance == '') {
+		var element = document.getElementById('container-biglietto');
+		element.classList.add('d-none');
+
+		alert('Inserisci i dati mancanti');
+		document.getElementById('ticketName').innerHTML = ' ';
+		document.getElementById('ticketReservationCode').innerHTML = ' ';
+		document.getElementById('ticketCarriage').innerHTML = ' ';
+		document.getElementById('ticketCost').innerHTML = ' ';
+		document.getElementById('ticketRate').innerHTML = ' ';
+	} else {
+		var element = document.getElementById('container-biglietto');
+		element.classList.remove('d-none');
 	}
 
 	function populateTicket() {
@@ -38,20 +60,6 @@ document.getElementById('generateTicketButton').addEventListener('click', functi
 		document.getElementById('ticketCost').innerHTML = travelCost.toFixed(2) + '&euro;';
 		document.getElementById('ticketRate').innerHTML = rate;
 	}
-
-	console.log(customerAge);
-
-	if (customerAge != 'underage' || customerAge != 'adult' || customerAge != 'over65') {
-		alert('Inserisci i dati mancanti');
-		document.getElementById('ticketName').innerHTML = ' ';
-		document.getElementById('ticketReservationCode').innerHTML = ' ';
-		document.getElementById('ticketCarriage').innerHTML = ' ';
-		document.getElementById('ticketCost').innerHTML = ' ';
-		document.getElementById('ticketRate').innerHTML = ' ';
-	}
-
-	var element = document.getElementById('container-biglietto');
-	element.classList.remove('d-none');
 });
 
 document.getElementById('resetButton').addEventListener('click', function () {
