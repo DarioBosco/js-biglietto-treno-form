@@ -4,15 +4,18 @@
 	box-sizing: border-box;
 }
 
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
 :root {
-	--main: #a21956;
+	--primary: #a21956;
 	--secondary: #cacacb;
-	--tertiary: #7e7e7f;
 }
 /* -------------------------------------------------- */
 /* Inizio Common */
-body .wrapper {
-	background-color: var(--main);
+.wrapper {
+	background-color: var(--primary);
 	height: 100vh;
 	width: 100%;
 }
@@ -24,31 +27,59 @@ body .wrapper {
 /* Fine Header */
 /* -------------------------------------------------- */
 /* Inizio Main */
-input.form-control {
-	border-color: var(--main);
-}
-label {
-	color: var(--main);
-}
-
-button.btn,
-button.btn:hover {
-	background-color: var(--secondary);
-	border-color: grey;
-	border-width: 2px;
-	color: var(--main);
-}
-
-button.btn:active,
-button.btn:focus {
-	border-color: var(--main);
-	box-shadow: none;
-}
-
 .card {
 	border-radius: 10px;
 	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
 }
+
+.form-control,
+.form-select {
+	border-color: var(--primary);
+}
+
+.form-select:active,
+.form-select:focus {
+	background: var(--primary);
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(250, 0, 0, 0.4);
+}
+
+.form-label {
+	color: var(--primary);
+}
+
+.btn,
+.btn:hover {
+	background-color: var(--secondary);
+	border-color: var(--bs-gray);
+	border-width: 2px;
+	color: var(--primary);
+}
+.btn:active,
+.btn:focus {
+	box-shadow: none;
+	border-color: var(--primary);
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.form-control:active,
+.form-control:focus,
+.form-select:active,
+.form-select:focus {
+	background: var(--primary);
+	color: var(--bs-white);
+	border-color: var(--primary);
+	box-shadow: none;
+}
+
+.mat-list-base .mat-list-option {
+	background-color: red;
+}
+
+h6.fw-bold:nth-child(1) {
+	height: 100px;
+}
+
 /* Fine Main */
 /* -------------------------------------------------- */
 /* !DEBUG ZONE! */
