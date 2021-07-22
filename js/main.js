@@ -12,16 +12,21 @@ Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo
 ? BONUS: predisporre l'interfaccia grafica responsiva :faccia_leggermente_sorridente:
 */
 
+/* Bottone GENERA */
 document.getElementById('generateTicketButton').addEventListener('click', function () {
+	/* Prezzo base del biglietto */
 	var ticketPriceByKm = 0.21;
 
+	/* Prendo i valori dal form */
 	var customerName = document.getElementById('customerName').value;
 	var travelDistance = parseInt(document.getElementById('travelDistance').value);
 	var customerAge = document.getElementById('age').value;
 
+	/* Numeri random per il numero della carrozza e del codice prenotazione */
 	var reservationCode = Math.floor(Math.random() * 10000 + 90000);
 	var carriageNumber = Math.floor(Math.random() * 10) + 1;
 
+	/* Calcolo lo sconto del biglietto in base alla fascia di eta' del cliente e dichiaro "rate" per stampare sul biglietto la scontistica adeguata  */
 	var rate = '';
 	var discount = 1;
 	if (customerAge == 'underage') {
@@ -34,15 +39,17 @@ document.getElementById('generateTicketButton').addEventListener('click', functi
 		discount = 0.6;
 		rate = 'Sconto Over&#160;65';
 	}
-	console.log(discount);
+
+	/* Calcolo il costo del biglietto e richiamo la funzione populateTicket */
 	var travelCost = travelDistance * ticketPriceByKm * discount;
 	populateTicket();
 
-	if ((customerAge != 'underage' && customerAge != 'adult' && customerAge != 'over65') || customerName == '' || travelDistance == '') {
+	/* Eseguo un controllo sui valori inseriti */
+	if ((customerAge != 'underage' && customerAge != 'adult' && customerAge != 'over65') || customerName == '' || travelDistance == '' || isNaN(travelDistance)) {
 		var element = document.getElementById('container-biglietto');
 		element.classList.add('d-none');
 
-		alert('Inserisci i dati mancanti');
+		alert('Inserisci i dati mancanti o assicurati di aver inserito un numero nei KM da percorrere');
 		document.getElementById('ticketName').innerHTML = ' ';
 		document.getElementById('ticketReservationCode').innerHTML = ' ';
 		document.getElementById('ticketCarriage').innerHTML = ' ';
@@ -53,6 +60,7 @@ document.getElementById('generateTicketButton').addEventListener('click', functi
 		element.classList.remove('d-none');
 	}
 
+	/* Funzione per popolare il biglietto*/
 	function populateTicket() {
 		document.getElementById('ticketName').innerHTML = customerName;
 		document.getElementById('ticketReservationCode').innerHTML = reservationCode;
@@ -62,6 +70,7 @@ document.getElementById('generateTicketButton').addEventListener('click', functi
 	}
 });
 
+/* Bottone ANNULLA */
 document.getElementById('resetButton').addEventListener('click', function () {
 	document.getElementById('customerName').value = ' ';
 	document.getElementById('travelDistance').value = ' ';
