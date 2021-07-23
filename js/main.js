@@ -72,7 +72,7 @@ document.getElementById('generateTicketButton').addEventListener('click', functi
 
 /* Bottone ANNULLA */
 document.getElementById('resetButton').addEventListener('click', function () {
-	document.getElementById('customerName').value = ' ';
+	document.getElementById('customerName').value = '';
 	document.getElementById('travelDistance').value = ' ';
 	document.getElementById('age').value = ' ';
 

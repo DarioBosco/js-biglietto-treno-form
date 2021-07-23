@@ -61,15 +61,16 @@ body {
 	border-color: var(--primary);
 	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
 }
-
-.form-control:active,
 .form-control:focus,
-.form-select:active,
 .form-select:focus {
 	background: var(--primary);
 	color: var(--bs-white);
 	border-color: var(--primary);
 	box-shadow: none;
+}
+
+.form-control:focus::placeholder {
+	color: var(--bs-white);
 }
 
 .mat-list-base .mat-list-option {
